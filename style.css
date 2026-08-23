@@ -1,0 +1,647 @@
+/* Base Theme Variables */
+:root {
+  --bg-color: #0d0f18;
+  --text-color: #ffffff;
+  --accent-red: #e62429;
+  --accent-blue: #0055ff;
+  --accent-pink: #ff2a85;
+  --accent-cyan: #00f0ff;
+  --card-bg: #16192b;
+}
+
+/* Spider-Man Mode */
+body.spiderman-theme {
+  --primary-accent: var(--accent-red);
+  --secondary-accent: var(--accent-blue);
+}
+
+/* Spider-Woman Mode */
+body.spiderwoman-theme {
+  --primary-accent: var(--accent-pink);
+  --secondary-accent: var(--accent-cyan);
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom: 3px solid var(--primary-accent, #e62429);
+}
+
+.logo {
+  font-family: 'Bangers', cursive;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--primary-accent, #e62429);
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: 600;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero-section h1 {
+  font-family: 'Bangers', cursive;
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+  text-shadow: 3px 3px 0px var(--primary-accent, #e62429);
+}
+
+.toggle-buttons button {
+  font-family: 'Bangers', cursive;
+  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  margin: 0.5rem;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+#spidey-btn {
+  background-color: var(--accent-red);
+  color: white;
+}
+
+#gwen-btn {
+  background-color: var(--accent-pink);
+  color: white;
+}
+
+.toggle-buttons button:hover {
+  transform: scale(1.05);
+}
+
+/* Character Cards Layout */
+.character-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 300px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.spidey-card {
+  border-color: var(--accent-red);
+}
+
+.gwen-card {
+  border-color: var(--accent-pink);
+}
+
+.card h2 {
+  font-family: 'Bangers', cursive;
+  font-size: 2.2rem;
+  margin-top: 0;
+}
+
+.spidey-card h2 { color: var(--accent-red); }
+.gwen-card h2 { color: var(--accent-pink); }
+
+.tagline {
+  font-style: italic;
+  color: #aaa;
+}
+
+.badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #333;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+ 
+/* Notes Section */
+.notes-section {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.section-title {
+  font-family: 'Bangers', cursive;
+  font-size: 3rem;
+  color: var(--accent-pink);
+  letter-spacing: 2px;
+  margin-bottom: 0.2rem;
+}
+
+.subtitle {
+  color: #ccc;
+  margin-bottom: 3rem;
+}
+
+.envelope-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+/* Envelope Container */
+.envelope {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  background-color: var(--accent-red);
+  border-radius: 6px;
+  cursor: pointer;
+  perspective: 1000px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.gwen-envelope {
+  background-color: var(--accent-pink);
+}
+
+.envelope:hover {
+  transform: translateY(-5px);
+}
+
+/* Flap (Top triangle) */
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-top: 100px solid #b31217;
+  transform-origin: top;
+  transition: transform 0.4s ease, z-index 0.4s ease;
+  z-index: 3;
+}
+
+.gwen-envelope .flap {
+  border-top-color: #c71563;
+}
+
+/* Pocket (Front overlap) */
+.pocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 140px solid #d11a20;
+  border-right: 140px solid #d11a20;
+  border-bottom: 95px solid #e62429;
+  border-radius: 0 0 6px 6px;
+  z-index: 2;
+}
+
+.gwen-envelope .pocket {
+  border-left-color: #e02274;
+  border-right-color: #e02274;
+  border-bottom-color: var(--accent-pink);
+}
+
+/* Secret Letter Inside */
+.letter {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  right: 15px;
+  height: 150px;
+  background: #ffffff;
+  color: #222;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease 0.2s;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.letter h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #111;
+}
+
+.letter p {
+  font-size: 0.85rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* Open Envelope Animation State */
+.envelope.open .flap {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.envelope.open .letter {
+  transform: translateY(-80px);
+  z-index: 4;
+}
+
+/* Game Styling */
+.game-section {
+  text-align: center;
+  padding: 2rem 1rem 4rem;
+}
+
+.score-board {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  font-family: 'Bangers', cursive;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.score-item {
+  background: var(--card-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent-pink);
+}
+
+#game-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: #080a10;
+  border: 3px solid var(--accent-pink);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Falling Objects */
+.falling-item {
+  position: absolute;
+  font-size: 1.8rem;
+  user-select: none;
+  z-index: 2;
+}
+
+/* Player Basket */
+#basket {
+  position: absolute;
+  bottom: 10px;
+  left: 270px; /* Centered initially */
+  font-size: 2.5rem;
+  width: 60px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  user-select: none;
+  z-index: 3;
+}
+
+/* Victory Overlay */
+#victory-msg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--accent-pink);
+  color: white;
+  padding: 1.5rem 2rem;
+  font-family: 'Bangers', cursive;
+  font-size: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 42, 133, 0.8);
+  z-index: 10;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Banner Container */
+.banner-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+.web-banner {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  background: radial-gradient(circle, #1a1c2e 0%, #0d0f18 100%);
+  border: 3px solid #ff2a85;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(255, 42, 133, 0.4), 0 0 15px rgba(0, 85, 255, 0.3);
+  
+  /* Floating Sway Animation */
+  animation: floatBanner 4s ease-in-out infinite alternate;
+}
+
+/* Corner Webs Animation */
+.web-corner {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.6;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+  animation: pulseWeb 3s ease-in-out infinite alternate;
+}
+
+.top-left     { top: 10px;  left: 15px; transform: rotate(-20deg); }
+.top-right    { top: 10px;  right: 15px; transform: rotate(70deg); }
+.bottom-left  { bottom: 10px; left: 15px; transform: rotate(-70deg); }
+.bottom-right { bottom: 10px; right: 15px; transform: rotate(160deg); }
+
+/* Main Title Styling */
+.main-text {
+  font-family: 'Bangers', cursive;
+  font-size: 3.2rem;
+  letter-spacing: 2px;
+  margin: 0 0 0.8rem 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.blue-text {
+  color: #00f0ff;
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.8);
+}
+
+.red-text {
+  color: #ff2442;
+  text-shadow: 0 0 12px rgba(255, 36, 66, 0.8);
+}
+
+/* Subtitle Styling */
+.sub-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.pink-text {
+  color: #ff69b4;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+}
+
+.white-text {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+}
+
+/* --- KEYFRAME ANIMATIONS --- */
+
+/* Smooth Floating Motion for Banner */
+@keyframes floatBanner {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+/* Web Glow Pulse Animation */
+@keyframes pulseWeb {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0.85;
+    transform: scale(1.1);
+  }
+}
+
+/* Base Page Reset */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+  transition: background 0.6s ease-in-out;
+}
+
+/* Background Web SVG Overlay */
+.bg-web-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure all page content stays above background effects */
+header, main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================================
+   1. SPIDER-MAN THEME BACKGROUND (Peter / Miles Classic)
+   ======================================================== */
+body.spiderman-theme {
+  /* Dark Manhattan night gradient with rich red/blue glows */
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(230, 36, 41, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(0, 85, 255, 0.25) 0%, transparent 45%),
+    linear-gradient(180deg, #070913 0%, #0d1124 50%, #05060b 100%);
+  background-attachment: fixed;
+}
+
+/* Dynamic glowing aura around Spider-Man page */
+body.spiderman-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ========================================================
+   2. SPIDER-WOMAN THEME BACKGROUND (Spider-Gwen Neon/Pink)
+   ======================================================== */
+body.spiderwoman-theme {
+  /* Vibrant, moody neon multiverse background */
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(255, 42, 133, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 20% 75%, rgba(0, 240, 255, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, #0e0714 0%, #170d24 50%, #09040d 100%);
+  background-attachment: fixed;
+}
+
+/* Animated Neon Particle Glow for Gwen's Theme */
+body.spiderwoman-theme::after {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 42, 133, 0.08) 10%, transparent 20%);
+  background-size: 50px 50px;
+  animation: gwenShift 12s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Animation for Spider-Woman Background Shimmer */
+@keyframes gwenShift {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(180deg) translateY(-20px);
+  }
+  100% {
+    transform: rotate(360deg) translateY(0);
+  }
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.player-container {
+  padding: 1rem;
+  width: 100%;
+  max-width: 380px;
+}
+
+.player-card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.player-card h2 {
+  margin-top: 0;
+  color: #00f0ff;
+}
+
+.track-details {
+  margin: 1.5rem 0;
+  padding: 0.8rem;
+  background-color: #2a2a2a;
+  border-radius: 6px;
+}
+
+.track-details p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #ccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.play-btn {
+  background-color: #e62429;
+  color: white;
+  width: 100%;
+}
+
+.play-btn:disabled {
+  background-color: #444;
+  cursor: not-allowed;
+}
+
+.play-btn:not(:disabled):hover {
+  background-color: #ff3b41;
+}
+
+.file-upload {
+  margin-top: 1rem;
+}
+
+.upload-btn {
+  display: block;
+  background-color: #0055ff;
+  color: white;
+}
+
+.upload-btn:hover {
+  background-color: #2670ff;
+}
+
+#mp3-file {
+  display: none;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider-Verse Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Font for Comic Vibe -->
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">SPIDER-VERSE</div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#spiderman">Spider-Man</a>
+      <a href="#spiderwoman">Spider-Woman</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Banner -->
+    <section id="hero" class="hero-section">
+      <h1>WELCOME TO THE SPIDER-VERSE</h1>
+      <p>Choose your hero's suit tone:</p>
+      <div class="toggle-buttons">
+        <button id="spidey-btn" onclick="setTheme('spiderman')">Spider-Man Red/Blue</button>
+        <button id="gwen-btn" onclick="setTheme('spiderwoman')">Spider-Woman Neon/Pink</button>
+      </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="character-container">
+      
+      <!-- Spider-Man Card -->
+      <article id="spiderman" class="card spidey-card">
+        <div class="badge">Earth-616</div>
+        <h2>Spider-Man</h2>
+        <p class="tagline">"With great power comes great responsibility."</p>
+        <ul>
+          <li><strong>Real Name:</strong> Peter Parker</li>
+          <li><strong>Primary Abilities:</strong> Wall-crawling, Spider-Sense, Web-slinging</li>
+          <li><strong>Signature Colors:</strong> Crimson Red & Royal Blue</li>
+        </ul>
+      </article>
+
+      <!-- Spider-Woman Card -->
+      <article id="spiderwoman" class="card gwen-card">
+        <div class="badge">Earth-65</div>
+        <h2>Spider-Woman</h2>
+        <p class="tagline">"In every universe, Spider-Woman falls in love with Spider-Man."</p>
+        <ul>
+          <li><strong>Real Name:</strong> Gwen Stacy</li>
+          <li><strong>Primary Abilities:</strong> Enhanced Agility, Web-shooters, Drumming Skills</li>
+          <li><strong>Signature Colors:</strong> White, Magenta, & Cyan/Teal</li>
+        </ul>
+      </article>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!-- Love Notes Section for Sonaaa -->
+    <section class="notes-section">
+      <h2 class="section-title">For Sonaaa 💖</h2>
+      <p class="subtitle">Click an envelope to open your secret message!</p>
+      
+      <div class="envelope-wrapper">
+        
+        <!-- Note 1: Spider-Man -->
+        <div class="envelope" onclick="toggleEnvelope(this)">
+          <div class="flap"></div>
+          <div class="pocket"></div>
+          <div class="letter">
+            <h3>🕷️ From Your Pyara Cutu Betuu...</h3>
+            <p>"I feel the most comfortable every time you're around! You're my ultimate hero, Sonaaa."</p>
+          </div>
+        </div>
+
+        <!-- Note 2: Spider-Woman -->
+        <div class="envelope gwen-envelope" onclick="toggleEnvelope(this)">
+          <div class="flap"></div>
+          <div class="pocket"></div>
+          <div class="letter">
+            <h3>🕸️ Across the Multiverse</h3>
+            <p>"In every single universe, you'll always be my favorite person. Love you, Sonaaa! ✨"</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="game-section">
+      <h2 class="section-title">Spider Catch Game! 🕷️</h2>
+      <p class="subtitle">Use <strong>A</strong> and <strong>D</strong> keys to move the basket. Catch 20 of each item to win for Sonaaa!</p>
+
+      <div class="score-board">
+        <div class="score-item">🕷️ Webs: <span id="web-count">0</span>/20</div>
+        <div class="score-item">💖 Pink Hearts: <span id="pink-count">0</span>/20</div>
+        <div class="score-item">🎀 Bows: <span id="bow-count">0</span>/20</div>
+        <div class="score-item">❤️ Red Hearts: <span id="red-count">0</span>/20</div>
+      </div>
+
+      <div id="game-container">
+        <div id="victory-msg" class="hidden">🎉 Yeyeyeyeye Sonaaa! U won My Bbygurl Yippieeee! 🕸️💖</div>
+        <div id="basket">🧺</div>
+      </div>
+    </section>
+
+    <section class="banner-section">
+  <div class="web-banner">
+    <div class="web-corner top-left">🕸️</div>
+    <div class="web-corner top-right">🕸️</div>
+    <div class="web-corner bottom-left">🕸️</div>
+    <div class="web-corner bottom-right">🕸️</div>
+
+    <div class="banner-content">
+      <h1 class="main-text">
+        <span class="blue-text">Lovee Youu</span> 
+        <span class="red-text">Sonaa Bby</span>
+      </h1>
+      <p class="sub-text">
+        <span class="pink-text">By Your</span> 
+        <span class="white-text">Betuuu</span> 💖
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Background Web Pattern Overlay -->
+<div class="bg-web-pattern">
+  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="spider-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+        <path d="M 0 0 L 80 80 M 80 0 L 0 80" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"/>
+        <circle cx="40" cy="40" r="20" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1"/>
+        <circle cx="40" cy="40" r="35" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#spider-grid)" />
+  </svg>
+</div>
